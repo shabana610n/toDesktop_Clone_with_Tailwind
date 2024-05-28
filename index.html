@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDesktop - Web app to desktop app in minutes</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="shortcut icon" href="https://www.todesktop.com/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <!-- NAVBAR  -->
+  <nav class="px-6 py-2 flex bg-[#fdfdff] justify-between items-center">
+    <a href="#" id="brand" class="flex gap-2 items-center">
+      <img class="object-cover max-w-20 max-h-20" src="assets/asset 0.png" alt="Logo">
+      <span class="text-lg font-medium">ToDesktop</span>
+    </a>
+    <div class="nav-menu-items hidden customLgSize:flex gap-12 items-center">
+      <a href="#" class="text-main-black text-lg hover:text-hover-blue font-medium">Pricing</a>
+      <a href="#" class="text-main-black text-lg hover:text-hover-blue font-medium">Docs</a>
+      <a href="#" class="text-main-black text-lg hover:text-hover-blue font-medium">Changelog</a>
+      <a href="#" class="text-main-black text-lg hover:text-hover-blue font-medium">Blog</a>
+      <a href="#" class="text-main-black text-lg hover:text-hover-blue font-medium">Login</a>
+    </div>
+
+    <button
+      class="hidden customLgSize:flex gap-3 items-center shadow-sm border-[#D0D1D6] border-[0.5px] hover:border-gray-400 rounded-lg px-2.5 py-2">
+      <img src="assets/asset 1.svg" alt="">
+      <span class="text-[#1c1c1f] text-base font-semibold">Electron Developers</span>
+      <i class="fa-solid fa-arrow-right text-[#84858a]"></i>
+    </button>
+
+    <button class="p-2 customLgSize:hidden" onclick="handleMenu()">
+      <i class="fa-solid fa-bars fa-xl text-[#6d6e73] mr-5"></i>
+    </button>
+
+    <div class="mblMenu hidden fixed inset-0 z-10 bg-white px-6 py-4 ">
+      <nav class="flex bg-white justify-between items-center">
+        <a href="#" id="brand" class="flex gap-2 items-center">
+          <img class="object-cover max-w-20 max-h-20" src="assets/asset 0.png" alt="Logo">
+          <span class="text-lg font-medium">ToDesktop</span>
+        </a>
+        <button>
+          <i class="fa-solid fa-xmark fa-xl mr-5 text-[#6d6e73]"></i>
+        </button>
+      </nav>
+
+      <div class="nav-menu-items flex flex-col gap-2.5 justify-center py-4 px-1 ">
+        <a href="#" class="text-main-black text-base font-medium py-3 hover:bg-slate-50">Pricing</a>
+        <a href="#" class="text-main-black text-base font-medium py-3 hover:bg-slate-50">Docs</a>
+        <a href="#" class="text-main-black text-base font-medium py-3 hover:bg-slate-50">Changelog</a>
+        <a href="#" class="text-main-black text-base font-medium py-3 hover:bg-slate-50">Blog</a>
+        <a href="#" class="text-main-black text-base font-medium py-3 hover:bg-slate-50">Login</a>
+
+        <button class="flex gap-3 items-center mt-7 py-3 hover:bg-slate-500">
+          <img src="assets/asset 1.svg" alt="">
+          <span class="text-[#1c1c1f] text-base font-semibold">Electron Developers</span>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+  <!-- NAVBAR END -->
+
+  <main>
+
+    <!-- HERO SECTION START -->
+    <div id="hero-section"
+      class="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-blue-50  via-orange-50 to-transparent">
+
+      <div id="hero-container"
+        class="h-full mx-[29%] flex flex-col items-start justify-center gap-10 customSmallMd:items-center customLgSize:items-center ">
+
+
+
+        <button
+          class="mt-[3.6rem] flex gap-2 items-center bg-[#fff6cc] transition-all duration-300 ease-in-out group hover:-translate-y-0.5 shadow-sm hover:shadow-md shadow-yellow-600/10 hover:shadow-yellow-600/20 border-[0.5px] border-[#ca8a04] hover:border-[#713f12] border-opacity-[0.2] hover:border-opacity-[0.4] rounded-lg px-[9px] py-[5px] w-72">
+
+          <i class="fa-solid fa-circle text-[#facc15] text-[7px] border-[#ca8a04] border-[0.5px] rounded-full"></i>
+          <p class="text-[#ca8a04] text-sm font-semibold">v0.21.1:</p>
+          <span class="text-[#713f12] text-sm font-semibold">Find-in-page bug fixes</span>
+          <i
+            class="fa-solid fa-arrow-right text-[#ca8a04] group-hover:translate-x-1 transition duration-300 ease-in-out"></i>
+        </button>
+
+        <div class="second hidden gap-5 customSmallMd:flex customSmallMd:gap-3 customLgSize:flex">
+          <div class="codefile flex items-center gap-2 text-[#6d6e73]">
+            <i class="fa-solid fa-file-code"></i>
+            <p class="customSmallMd:text-[13px]">Code optional</p>
+          </div>
+          <div class="drag-drop-hand flex items-center gap-2 text-[#6d6e73]">
+            <i class="fa-regular fa-hand"></i>
+            <p class="customSmallMd:text-[13px]">Drag & drop builder</p>
+          </div>
+          <div class="windows flex items-center gap-2 text-[#6d6e73]">
+            <i class="fa-solid fa-window-restore"></i>
+            <p class="customSmallMd:text-[13px]">Windows, Mac, Linux</p>
+          </div>
+        </div>
+
+        <h1
+          class="text-6xl text-start text-main-black customLgSize:text-[4rem] customSmallSize:text-[3rem] customLgSize:text-center font-semibold customSmallMd:text-center customSmallMd:text-[3.5rem] customLgSize:mx-[7%]">
+          Web
+          app to desktop app in minutes</h1>
+        <p
+          class="text-[22px] text-start customLgSize:text-2xl customLgSize:text-center text-[#2f3033] customSmallMd:text-center customSmallMd:text-[1.2rem] customLgSize:mx-[13%]">
+          Take your web app codebase and transform it into
+          a cross platform desktop app with native functionality.</p>
+        <div
+          class="twobtns flex flex-col items-center gap-5 customLgSize:flex customLgSize:flex-row customSmallMd:flex customSmallMd:flex-row">
+          <button
+            class="shadow-sm bg-[#3238f2] hover:bg-[#3255EB] rounded-lg px-5 py-3 w-[29rem] customSmallSize:w-[20rem] customSmallMd:w-[14rem] customLgSize:w-48">
+            <p class="font-medium text-lg text-white text-center">Download now</p>
+          </button>
+          <button
+            class="shadow-sm border-[#D0D1D6] border-[0.5px] hover:border-gray-400 rounded-lg px-6 py-3 w-[29rem] customSmallSize:w-[20rem] customSmallMd:w-[13.5rem] customLgSize:w-40">
+            <p class="font-medium text-lg text-main-black text-center">Read docs</p>
+          </button>
+        </div>
+
+        <div class="flex justify-center items-center gap-3 mt-9">
+          <img class="mt-3" src="assets/asset 2.svg" alt="">
+          <p class="font-semibold text-[#2f3033]">APPS POWERED BY TODESKTOP</p>
+          <img class="-scale-x-100 mt-3" src="assets/asset 2.svg" alt="">
+        </div>
+
+        <div id="companies-line-group"
+          class="flex flex-col flex-wrap items-start gap-4 mb-8 mt-8 customLgSize:items-center">
+          <div id="line1" class="flex gap-4 flex-wrap customLgSize:flex-nowrap">
+            <div id="lifeAt"
+              class="min-h-24 min-w-24 px-3 py-1.5 flex flex-col justify-center items-center bg-white shadow-sm border-[#D0D1D6] border-[0.5px] rounded-lg">
+              <img class="w-12 h-12 customLgSize:w-15 customLgSize:h-15" src="assets/asset 4.png" alt="">
+              <p class="font-semibold text-[12px] customLgSize:text-[17px] text-main-black text-center">
+                Life At</p>
+            </div>
+            <div id="convy"
+              class="min-h-24 min-w-24 px-3 py-1.5 flex flex-col justify-center items-center bg-white shadow-sm border-[#D0D1D6] border-[0.5px] rounded-lg">
+              <img class="w-12 h-12 customLgSize:w-15 customLgSize:h-15" src="assets/asset 5.png" alt="">
+              <p class="font-semibold text-[12px] customLgSize:text-[17px] text-main-black text-center">
+                Convy</p>
+            </div>
+            <div id="morgen"
+              class="min-h-24 min-w-24 px-3 py-1.5 flex flex-col justify-center items-center bg-white shadow-sm border-[#D0D1D6] border-[0.5px] rounded-lg">
+              <img class="w-12 h-12 customLgSize:w-15 customLgSize:h-15" src="assets/asset 6.png" alt="">
+              <p class="font-semibold text-[12px] customLgSize:text-[17px] text-main-black text-center">
+                Morgen</p>
+            </div>
+            <div id="campSite"
+              class="min-h-24 min-w-24 px-3 py-1.5 flex flex-col justify-center items-center bg-white shadow-sm border-[#D0D1D6] border-[0.5px] rounded-lg">
+              <img class="w-12 h-12 customLgSize:w-15 customLgSize:h-15" src="assets/asset 7.png" alt="">
+              <p class="font-semibold text-[12px] customLgSize:text-[17px] text-main-black text-center">
+                Campsite</p>
+            </div>
+            <div id="rise"
+              class="min-h-24 min-w-24 px-3 py-1.5 flex flex-col justify-center items-center bg-white shadow-sm border-[#D0D1D6] border-[0.5px] rounded-lg">
+              <img class="w-12 h-12 customLgSize:w-15 customLgSize:h-15" src="assets/asset 8.png" alt="">
+              <p class="font-semibold text-[12px] customLgSize:text-[17px] text-main-black text-center">
+                Rise</p>
+            </div>
+            <div id="clickUp"
+              class="min-h-24 min-w-24 px-3 py-1.5 flex flex-col justify-center items-center bg-white shadow-sm border-[#D0D1D6] border-[0.5px] rounded-lg">
+              <img class="w-12 h-12 customLgSize:w-15 customLgSize:h-15" src="assets/asset 9.png" alt="">
+              <p class="font-semibold text-[12px] customLgSize:text-[17px] text-main-black text-center">
+                ClickUp</p>
+            </div>
+            <div id="notion"
+              class="hidden customLgSize:flex min-h-24 min-w-24 px-3 py-1.5 flex-col justify-center items-center bg-white shadow-sm border-[#D0D1D6] border-[0.5px] rounded-lg">
+              <img class="w-12 h-12 customLgSize:w-15 customLgSize:h-15" src="assets/asset 10.png" alt="">
+              <p class="font-semibold text-[12px] customLgSize:text-[17px] text-main-black text-center">
+                Notion</p>
+            </div>
+            <div id="sunsama"
+              class="hidden customLgSize:flex min-h-24 min-w-24 px-3 py-1.5 flex-col justify-center items-center bg-white shadow-sm border-[#D0D1D6] border-[0.5px] rounded-lg">
+              <img class="w-12 h-12 customLgSize:w-15 customLgSize:h-15" src="assets/asset 11.png" alt="">
+              <p class="font-semibold text-[12px] customLgSize:text-[17px] text-main-black text-center">
+                Sunsama</p>
+            </div>
+          </div>
+
+          <div id="line2" class="flex gap-4 flex-wrap">
+            <div id="beeper"
+              class="min-h-24 min-w-24 px-3 py-1.5 flex flex-col justify-center items-center bg-white shadow-sm border-[#D0D1D6] border-[0.5px] rounded-lg">
+              <img class="w-12 h-12 customLgSize:w-15 customLgSize:h-15" src="assets/asset 12.png" alt="">
+              <p class="font-semibold text-[12px] customLgSize:text-[17px] text-main-black text-center">
+                Beeper</p>
+            </div>
+            <div id="cal"
+              class="min-h-24 min-w-24 px-3 py-1.5 flex flex-col justify-center items-center bg-white shadow-sm border-[#D0D1D6] border-[0.5px] rounded-lg">
+              <img class="w-12 h-12 customLgSize:w-15 customLgSize:h-15" src="assets/asset 13.png" alt="">
+              <p class="font-semibold text-[12px] customLgSize:text-[17px] text-main-black text-center">
+                Cal.com</p>
+            </div>
+            <div id="webStudio"
+              class="min-h-24 min-w-24 px-3 py-1.5 flex flex-col justify-center items-center bg-white shadow-sm border-[#D0D1D6] border-[0.5px] rounded-lg">
+              <img class="w-12 h-12 customLgSize:w-15 customLgSize:h-15" src="assets/asset 14.png" alt="">
+              <p class="font-semibold text-[12px] customLgSize:text-[17px] text-main-black text-center">
+                Webstudio</p>
+            </div>
+            <div id="modyfi"
+              class="min-h-24 min-w-24 px-3 py-1.5 flex flex-col justify-center items-center bg-white shadow-sm border-[#D0D1D6] border-[0.5px] rounded-lg">
+              <img class="w-12 h-12 customLgSize:w-15 customLgSize:h-15" src="assets/asset 15.png" alt="">
+              <p class="font-semibold text-[12px] customLgSize:text-[17px] text-main-black text-center">
+                Modyfi</p>
+            </div>
+            <div id="slite"
+              class="min-h-24 min-w-24 px-3 py-1.5 flex flex-col justify-center items-center bg-white shadow-sm border-[#D0D1D6] border-[0.5px] rounded-lg">
+              <img class="w-12 h-12 customLgSize:w-15 customLgSize:h-15" src="assets/asset 17.png" alt="">
+              <p class="font-semibold text-[12px] customLgSize:text-[17px] text-main-black text-center">
+                Slite</p>
+            </div>
+            <div id="typeFully"
+              class="min-h-24 min-w-24 px-3 py-1.5 flex flex-col justify-center items-center bg-white shadow-sm border-[#D0D1D6] border-[0.5px] rounded-lg">
+              <img class="w-12 h-12 customLgSize:w-15 customLgSize:h-15" src="assets/asset 18.png" alt="">
+              <p class="font-semibold text-[12px] customLgSize:text-[17px] text-main-black text-center">
+                Typefully</p>
+            </div>
+          </div>
+
+        </div>
+
+
+
+      </div> <!--  HERO CONTAINER END TAG -->
+
+    </div> <!--  HERO SECTION END -->
+
+
+    <!-- HOW IT WORKS -- STEPS  -->
+    <div class="steps">
+      <h1
+        class="text-3xl text-start text-main-black customLgSize:text-5xl customSmallSize:text-2xl customSmallMd:text-4xl font-semibold mx-16 mb-16 mt-20">
+        How it works</h1>
+      <div class="all-steps-container h-full customLgSize:h-[98rem] flex flex-col mx-16 gap-12">
+
+
+        <div id="step1" class="step">
+          <div class="leftSide">
+            <button class="stepBtn">
+              <p class="stepBtnText">Step 1</p>
+            </button>
+            <h1 class="stepHeading">
+              Bootstrap straight from your web app</h1>
+            <p class="text-[#2f3033] text-lg">
+              Copy and paste your web app url into ToDesktop. Customise your app design, app icon and window frame UI
+              with no code.</p>
+            <div class="check-box-text">
+              <div class="checkBox-text">
+                <div class="inner-line">
+                  <i class="fa-solid fa-check text-[#6D6E73]"></i>
+                  <p class="innerLine-text">
+                    Multiple windows</p>
+                </div>
+                <div class="inner-line">
+                  <i class="fa-solid fa-check text-[#6D6E73]"></i>
+                  <p class="innerLine-text">
+                    Menubar/tray menus</p>
+                </div>
+                <div class="inner-line">
+                  <i class="fa-solid fa-check text-[#6D6E73]"></i>
+                  <p class="innerLine-text">
+                    Offline support</p>
+                </div>
+              </div>
+              <div class="second checkBox-text">
+                <div class="inner-line">
+                  <i class="fa-solid fa-check text-[#6D6E73]"></i>
+                  <p class="innerLine-text">
+                    Customisable menus</p>
+                </div>
+                <div class="inner-line">
+                  <i class="fa-solid fa-check text-[#6D6E73]"></i>
+                  <p class="innerLine-text">
+                    Launch on startup</p>
+                </div>
+                <div class="inner-line">
+                  <i class="fa-solid fa-check text-[#6D6E73]"></i>
+                  <p class="innerLine-text">
+                    Tabs (Mac only)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="rightSide">
+            <img src="assets/asset 66.svg" alt="" class="w-[456px] h-[356px]">
+          </div>
+        </div>
+
+        <div id="step2" class="step">
+          <div class="leftSide">
+            <button class="stepBtn">
+              <p class="stepBtnText">Step 2</p>
+            </button>
+            <h1 class="stepHeading">
+              Add desktop code to customise your web app</h1>
+            <p class="text-[#2f3033] text-lg">
+              No need to create a new repository, just add code from our desktop APIs to your codebase and get access to
+              system level functionality.</p>
+            <div class="check-box-text">
+              <div class="checkBox-text">
+                <div class="inner-line">
+                  <i class="fa-solid fa-check text-[#6D6E73]"></i>
+                  <p class="innerLine-text">
+                    Native notifications</p>
+                </div>
+                <div class="inner-line">
+                  <i class="fa-solid fa-check text-[#6D6E73]"></i>
+                  <p class="innerLine-text">
+                    Application menu</p>
+                </div>
+                <div class="inner-line">
+                  <i class="fa-solid fa-check text-[#6D6E73]"></i>
+                  <p class="innerLine-text">
+                    Dock/Icon</p>
+                </div>
+              </div>
+              <div class="second checkBox-text">
+                <div class="inner-line">
+                  <i class="fa-solid fa-check text-[#6D6E73]"></i>
+                  <p class="innerLine-text">
+                    Global keyboard shortcuts</p>
+                </div>
+                <div class="inner-line">
+                  <i class="fa-solid fa-check text-[#6D6E73]"></i>
+                  <p class="innerLine-text">
+                    Context menu</p>
+                </div>
+                <div class="inner-line">
+                  <i class="fa-solid fa-check text-[#6D6E73]"></i>
+                  <p class="innerLine-text">
+                    Isolated browser</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="rightSide">
+            <img class="w-[456px] h-[356px] customLgSize:mt-0 mt-4" src="assets/asset 66.svg" alt="">
+          </div>
+        </div>
+
+        <div id="step3" class="step">
+          <div class="leftSide">
+            <button class="stepBtn">
+              <p class="stepBtnText">Step 3</p>
+            </button>
+            <h1 class="stepHeading">
+              Publish</h1>
+            <p class="text-[#2f3033] text-lg">
+              One-click will publish your desktop app to your customers and give you a download link to put on your
+              website.</p>
+            <div class="check-box-text">
+              <div class="checkBox-text">
+                <div class="inner-line">
+                  <i class="fa-solid fa-check text-[#6D6E73]"></i>
+                  <p class="innerLine-text">
+                    Super-fast global CDN</p>
+                </div>
+                <div class="inner-line">
+                  <i class="fa-solid fa-check text-[#6D6E73]"></i>
+                  <p class="innerLine-text">
+                    Magic universal links</p>
+                </div>
+                <div class="inner-line">
+                  <i class="fa-solid fa-check text-[#6D6E73]"></i>
+                  <p class="innerLine-text">
+                    Manage version numbers</p>
+                </div>
+              </div>
+              <div class="second checkBox-text">
+                <div class="inner-line">
+                  <i class="fa-solid fa-check text-[#6D6E73]"></i>
+                  <p class="innerLine-text">
+                    Download links</p>
+                </div>
+                <div class="inner-line">
+                  <i class="fa-solid fa-check text-[#6D6E73]"></i>
+                  <p class="innerLine-text">
+                    Download analytics</p>
+                </div>
+                <div class="inner-line">
+                  <i class="fa-solid fa-check text-[#6D6E73]"></i>
+                  <p class="innerLine-text">
+                    Native installers</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="rightSide">
+            <img class="w-[456px] h-[356px]" src="assets/asset 66.svg" alt="">
+          </div>
+        </div>
+      </div>
+    </div> <!-- STEPS END -->
+
+
+    <!-- HANDLES DETAILS -- BENTO GRID  -->
+    <div class="handles-details h-full w-full customLgSize:h-[680px] px-14">
+      <h1
+        class="text-3xl customLgSize:leading-[3.6rem] text-start text-main-black customLgSize:text-5xl customSmallSize:text-2xl customSmallMd:text-4xl font-semibold mb-16 mt-28">
+        ToDesktop handles <br>
+        the details</h1>
+      <div class="bento-grid flex flex-col h-full gap-6 customLgSize:grid grid-cols-3">
+        <div
+          class="rounded-2xl w-full h-[16%] customLgSize:h-[70%] group p-[1px] bg-slate-200 hover:bg-gradient-to-br hover:from-red-200 hover:via-purple-200 hover:to-yellow-200;">
+          <div
+            class="w-full h-full py-6 px-9 rounded-2xl bg-slate-50 group-hover:bg-gradient-to-br group-hover:from-red-50 group-hover:via-purple-50 group-hover:to-yellow-50; border-[#e8e9ec] border-[0.5px] flex flex-col justify-center items-center gap-4">
+            <h3 class="font-semibold text-2xl justOnce:text-lg">Native Notifications</h3>
+            <img src="assets/asset 37.png" alt="">
+          </div>
+        </div>
+        <div
+          class="rounded-2xl w-full h-[16%] customLgSize:h-full group p-[1px] bg-slate-200 hover:bg-gradient-to-br hover:from-red-200 hover:via-purple-200 hover:to-yellow-200;">
+          <div
+            class="w-full h-full py-6 px-9 rounded-2xl bg-slate-50 group-hover:bg-gradient-to-br group-hover:from-red-50 group-hover:via-purple-50 group-hover:to-yellow-50; border-[#e8e9ec] border-[0.5px] flex flex-col justify-center items-center gap-4">
+            <h3 class="font-semibold text-2xl justOnce:text-lg">Auto Updates</h3>
+            <p class="font-medium text-[#2f3033] text-[17px] text-center justOnce:font-normal justOnce:text-base">
+              We'll ensure the underlying browser is up to date and deliver performance improvements, security patches,
+              & additional features.</p>
+            <img src="assets/asset 38.png" alt="">
+          </div>
+        </div>
+        <div
+          class="rounded-2xl w-full h-[16%] customLgSize:h-[70%] group p-[1px] bg-slate-200 hover:bg-gradient-to-br hover:from-red-200 hover:via-purple-200 hover:to-yellow-200;">
+          <div
+            class="w-full h-full py-6 px-9 rounded-2xl bg-slate-50 group-hover:bg-gradient-to-br group-hover:from-red-50 group-hover:via-purple-50 group-hover:to-yellow-50; border-[#e8e9ec] border-[0.5px] flex flex-col justify-center items-center gap-4">
+            <h3 class="font-semibold text-2xl justOnce:text-lg">Plugins</h3>
+            <img src="assets/asset 39.png" alt="">
+          </div>
+        </div>
+        <div
+          class="rounded-2xl customLgSize:mt-[-5.7rem] w-full h-[16%] customLgSize:h-full group p-[1px] bg-slate-200 hover:bg-gradient-to-br hover:from-red-200 hover:via-purple-200 hover:to-yellow-200;">
+          <div
+            class="w-full h-full customLgSize:py-[4.2rem] py-6 px-9 rounded-2xl bg-slate-50 group-hover:bg-gradient-to-br group-hover:from-red-50 group-hover:via-purple-50 group-hover:to-yellow-50; border-[#e8e9ec] border-[0.5px] flex flex-col justify-center items-center gap-4">
+            <h3 class="font-semibold text-2xl justOnce:text-lg">Access to Native APIs</h3>
+            <p class="font-medium text-[#2f3033] text-[17px] text-center justOnce:font-normal justOnce:text-base">
+              ToDesktop ensures the underlying browser, performance improvements, security patches and additional
+              features are always up to date.</p>
+            <img src="assets/asset 40.png" alt="">
+          </div>
+        </div>
+        <div
+          class="rounded-2xl w-full h-[16%] customLgSize:h-[70%] group p-[1px] bg-slate-200 hover:bg-gradient-to-br hover:from-red-200 hover:via-purple-200 hover:to-yellow-200;">
+          <div
+            class="w-full h-full py-6 px-9 rounded-2xl bg-slate-50 group-hover:bg-gradient-to-br group-hover:from-red-50 group-hover:via-purple-50 group-hover:to-yellow-50; border-[#e8e9ec] border-[0.5px] flex flex-col justify-center items-center gap-4">
+            <h3 class="font-semibold text-[23px] justOnce:text-lg">Customizable look and feel</h3>
+            <img src="assets/asset 41.png" alt="">
+          </div>
+        </div>
+        <div
+          class="rounded-2xl customLgSize:mt-[-5.7rem] w-full h-[16%] customLgSize:h-full group p-[1px] bg-slate-200 hover:bg-gradient-to-br hover:from-red-200 hover:via-purple-200 hover:to-yellow-200;">
+          <div
+            class="w-full h-full customLgSize:py-[4.2rem] py-6 px-9 rounded-2xl bg-slate-50 group-hover:bg-gradient-to-br group-hover:from-red-50 group-hover:via-purple-50 group-hover:to-yellow-50; border-[#e8e9ec] border-[0.5px] flex flex-col justify-center items-center gap-4">
+            <h3 class="font-semibold text-2xl justOnce:text-lg">Native Installers</h3>
+            <p class="font-medium text-[#2f3033] text-[17px] text-center justOnce:font-normal justOnce:text-base">
+              We even provide a magic link which will detect your users operating system & download the most up to date
+              version of your app.</p>
+            <img src="assets/asset 43.png" alt="">
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- BENTO GRID -- THE END -->
+
+
+    <!-- CUSTOMER STORIES -->
+    <div class="customer-stories h-full w-full px-14">
+      <h1
+        class="text-start text-main-black text-5xl customSmallSize:text-4xl font-semibold mb-12 mt-[7rem] customLgSize:mt-[12.5rem]">
+        Customer Stories
+      </h1>
+      <div
+        class="py-10 pl-10 h-full grid grid-rows-1 customLgSize:grid-cols-2 gap-7 bg-[#FAFAFC] shadow-sm border-[#e8e9ec] border-[0.5px] rounded-lg">
+
+
+        <div class="flex flex-col gap-8">
+          <img src="assets/asset 44.svg" class="w-[134px] h-[33px]">
+          <p class="font-semibold text-main-black text-[22px] mr-11 customLgSize:mr-0">
+            ClickUp used ToDesktop to get their desktop app in front of customers in days instead of months.</p>
+          <div class="boxes customSmallSize:hidden flex flex-col gap-2">
+            <div class="upper-boxes temporary:flex-col temporary:mr-44 flex gap-3">
+              <div
+                class="bg-[#fff6cc] shadow-sm border-[0.5px] temporary:mr-32 rounded-lg px-3 py-1 flex items-center gap-2">
+                <i class="fa-solid fa-check text-[#665300]"></i>
+                <p class="text-[#665300] text-[14px] font-semibold">Chromeless UI</p>
+              </div>
+              <div
+                class="bg-[#fff6cc] shadow-sm border-[0.5px] temporary:mr-24 rounded-lg px-3 py-1 flex items-center gap-2">
+                <i class="fa-solid fa-check text-[#665300]"></i>
+                <p class="text-[#665300] text-[14px] font-semibold">Native spellcheck</p>
+              </div>
+              <div
+                class="bg-[#fff6cc] shadow-sm border-[0.5px] temporary:mr-20 rounded-lg px-3 py-1 flex items-center gap-2">
+                <i class="fa-solid fa-check text-[#665300]"></i>
+                <p class="text-[#665300] text-[14px] font-semibold">Task time in menubar</p>
+              </div>
+            </div>
+            <div class="lower-boxes temporary:flex-col temporary:mr-24 flex gap-3">
+              <div
+                class="bg-[#fff6cc] shadow-sm border-[0.5px] temporary:mr-32 rounded-lg px-3 py-1 flex items-center gap-2">
+                <i class="fa-solid fa-check text-[#665300]"></i>
+                <p class="text-[#665300] text-[14px] font-semibold">Notification count in the dock</p>
+              </div>
+              <div
+                class="bg-[#fff6cc] shadow-sm border-[0.5px] temporary:mr-36 rounded-lg px-3 py-1 flex items-center gap-2">
+                <i class="fa-solid fa-check text-[#665300]"></i>
+                <p class="text-[#665300] text-[14px] font-semibold">Global hotkey to create task</p>
+              </div>
+            </div>
+          </div>
+          <p class="text-[#6d6e73] text-lg mr-5 customLgSize:mr-0">
+            “ToDesktop provided us with a <span class="text-[#1f1f20]">polished desktop app</span> in no time. Their
+            expert team guided us through a smooth migration from our outdated legacy desktop app, enabling us to
+            deliver <span class="text-[#1f1f20]">new and improved features</span> to our customers within days.”
+          </p>
+          <div class="author flex gap-3 items-center">
+            <img src="assets/asset 45.jpeg" alt="author" class="rounded-full">
+            <div class="author-info">
+              <p class="font-semibold">Zeb Evans</p>
+              <p class="text-[#6d6e73]">Founder & CEO, ClickUp</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rightImg hidden customLgSize:block customLgSize:ml-[5.6rem]">
+          <img src="assets/asset 46.png" class="w-[514px] h-[516px]">
+        </div>
+
+      </div>
+    </div>
+    <!-- CUSTOMER STORIES -- THE END -->
+
+
+    <!-- REVIEWS -->
+    <div class="reviews h-full customLgSize:h-[530px] w-full mt-16 px-14">
+      <div class="grid grid-rows-3 customLgSize:grid-cols-3 gap-4">
+        <div
+          class="rounded-2xl group p-[1px] bg-slate-200 hover:bg-gradient-to-br hover:from-red-200 hover:via-purple-200 hover:to-yellow-200;">
+          <div
+            class="w-full h-full flex flex-col gap-4 py-4 customLgSize:py-6 px-6 rounded-2xl bg-slate-50 group-hover:bg-gradient-to-br group-hover:from-red-50 group-hover:via-purple-50 group-hover:to-yellow-50; border-[#e8e9ec] border-[0.5px]">
+            <img src="assets/icon 1.jpg" class="w-[3.9rem] h-[3.7rem] pl-2">
+            <h3 class="font-semibold text-2xl mb-1 customLgSize:mb-7 pl-3">Native APIs</h3>
+            <div class="review-text flex gap-1">
+              <span class="text-[#d0d1d6] text-xl font-semibold">“</span>
+              <p class="text-[#1c1c1f] text-lg">
+                What sets ToDesktop apart is its seamless integration with native APIs
+                using our existing web codebase. By tapping into APIs like Tray and Notifications, we've crafted an
+                exceptionally polished desktop user experience. <span
+                  class="text-[#d0d1d6] text-xl font-semibold">”</span>
+              </p>
+            </div>
+            <div class="author flex mt-4 gap-3 items-center pl-2">
+              <div class="author-imgs flex">
+                <img src="assets/asset 47.png" alt="companyIcon" class="rounded-full h-[50px] w-[50px]">
+                <img src="assets/asset 48.jpeg" alt="author"
+                  class="rounded-full -ml-3 h-[48px] w-[48px] border-white border-[0.5px]">
+              </div>
+              <div class="author-info">
+                <p class="font-semibold">Rick Pastoor</p>
+                <p class="text-[#6d6e73]">Rise</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rounded-2xl group p-[1px] bg-slate-200 hover:bg-gradient-to-br hover:from-red-200 hover:via-purple-200 hover:to-yellow-200;">
+          <div
+            class="w-full h-full flex flex-col gap-4 py-4 customLgSize:py-6 px-6 rounded-2xl bg-slate-50 group-hover:bg-gradient-to-br group-hover:from-red-50 group-hover:via-purple-50 group-hover:to-yellow-50; border-[#e8e9ec] border-[0.5px]">
+            <img src="assets/icon 2.png" class="w-[4.1rem] h-[3.8rem] pl-2">
+            <h3 class="font-semibold text-2xl mb-1 customLgSize:mb-7 pl-3">Cleaner, less cluttered UI</h3>
+            <div class="review-text flex gap-1">
+              <span class="text-[#d0d1d6] text-xl font-semibold">“</span>
+              <p class="text-[#1c1c1f] text-lg">
+                Having a desktop app gives us the freedom to design the experience we want, including better keyboard
+                shortcuts and a cleaner UI. It was a no-brainer for us to use ToDesktop.<span
+                  class="text-[#d0d1d6] text-xl font-semibold">”</span>
+              </p>
+            </div>
+            <div class="author flex mt-3 customLgSize:mt-[4.5rem] gap-3 items-center pl-2">
+              <div class="author-imgs flex">
+                <img src="assets/asset 49.png" alt="companyIcon" class="rounded-full h-[50px] w-[50px]">
+                <img src="assets/asset 50.jpeg" alt="author"
+                  class="rounded-full -ml-3 h-[48px] w-[48px] border-white border-[0.5px]">
+              </div>
+              <div class="author-info">
+                <p class="font-semibold">Max Musing</p>
+                <p class="text-[#6d6e73]">Basedash</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rounded-2xl group p-[1px] bg-slate-200 hover:bg-gradient-to-br hover:from-red-200 hover:via-purple-200 hover:to-yellow-200;">
+          <div
+            class="w-full h-full flex flex-col gap-4 py-4 customLgSize:py-6 px-6 rounded-2xl bg-slate-50 group-hover:bg-gradient-to-br group-hover:from-red-50 group-hover:via-purple-50 group-hover:to-yellow-50; border-[#e8e9ec] border-[0.5px]">
+            <img src="assets/icon 3.png" class="w-[5rem] h-[4rem] pl-2">
+            <h3 class="font-semibold text-2xl mb-1 customLgSize:mb-7 pl-3">Code optional</h3>
+            <div class="review-text flex gap-1">
+              <span class="text-[#d0d1d6] text-xl font-semibold">“</span>
+              <p class="text-[#1c1c1f] text-lg">
+                It was unbelievably simple for us to get a desktop app up and running, and we didn’t have to write a
+                single line of code. Once we had this MVP, we were able to extend the app’s functionality with custom
+                behavior using ToDesktop’s libraries. <span class="text-[#d0d1d6] text-xl font-semibold">”</span>
+              </p>
+            </div>
+            <div class="author flex mt-2 customLgSize:mt-4 gap-3 items-center pl-2">
+              <div class="author-imgs flex">
+                <img src="assets/asset 51.png" alt="companyIcon" class="rounded-full h-[50px] w-[50px]">
+                <img src="assets/asset 52.jpeg" alt="author"
+                  class="rounded-full -ml-3 h-[48px] w-[48px] border-white border-[0.5px]">
+              </div>
+              <div class="author-info">
+                <p class="font-semibold">Pouya Rad</p>
+                <p class="text-[#6d6e73]">LifeAt</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- REVIEWS -- THE END -->
+
+
+    <!-- FAQS -->
+    <div class="faqs h-full w-full  px-14">
+      <h1 class="text-start text-main-black text-5xl font-semibold mt-28 mb-14">
+        FAQs
+      </h1>
+      <div class="faq-container grid grid-cols-2 justOnce:grid-cols-1 gap-5">
+
+
+        <div class="faq-left flex flex-col gap-3">
+
+
+          <div class="bg-[#fafafc] bg-opacity-55 border-[#f0f0f5] border-[0.5px] rounded-lg">
+            <dt aria-controls="faq1" class="flex p-6 justify-between items-center cursor-pointer">
+              <p class="text-lg font-semibold">
+                Is ToDesktop For Me?
+              </p>
+              <i class=" hidden -rotate-180 fa-solid fa-chevron-down text-[#fafafc]"></i>
+              <!-- We added it because The toggle isn't working until the -rotate-180 class should already added by default in at least one icon of HTML CODE.  -->
+              <i class="fa-solid fa-chevron-down text-[#a6a6a7]"></i>
+            </dt>
+            <dd id="faq1" class="faq-answer ml-5 mr-7 hidden">
+              <p class="text-lg text-[#303331]">
+                That depends! If you would like to distribute your web app to your users as a downloadable desktop app
+                then ToDesktop is for you.
+              </p>
+              <p class="text-lg text-[#303331]">
+                If you want to make a desktop app of a website for your personal use, ToDesktop is overkill.
+              </p>
+              <p class="text-lg text-[#303331]">
+                What's the difference? There are extra considerations when creating a desktop app for distribution to
+                customers. Here are the top 3:
+              </p>
+              <ul class="flex flex-col gap-3">
+                <li class="text-lg ml-5 mr-7 list-disc text-[#303331]"><span class="font-semibold">Installer</span> —
+                  Mac users expect a “drag to applications” DMG file. Windows users expect an installer and they also
+                  expect to be able to uninstall it from the control panel.</li>
+                <li class="text-lg ml-5 mr-7 list-disc text-[#303331]"><span class="font-semibold">Code Signing</span> —
+                  By default Windows Authenticode and Apple Gatekeeper will stop your desktop app opening.Signing your
+                  code allows your app to open without issues.</li>
+                <li class="text-lg ml-5 mr-7 list-disc text-[#303331]"><span class="font-semibold">Auto-update</span> —
+                  There is a web browser running “underneath” your desktop app. It's important to keep this updated for
+                  two reasons.</li>
+                <ol class="ml-5 mr-7 flex flex-col gap-3">
+                  <li class="text-lg ml-5 mr-7 list-decimal text-[#959597]">
+                    <p class="ml-2 text-lg text-[#303331]">Security issues + vulnerabilities can occur. Auto-update
+                      ensures that they stay patched over time.</p>
+                  </li>
+                  <li class="text-lg ml-5 mr-7 list-decimal text-[#959597]">
+                    <p class="ml-2 text-lg text-[#303331]">You don't want to be stuck supporting an old web browser in 5
+                      years from now. This can happen if your desktop app's underlying web browser hasn't updated.</p>
+                  </li>
+                </ol>
+              </ul>
+              <p class="text-lg mr-9 text-[#303331]">
+                ToDesktop offers these features as standard! Saving you a ton of development time and effort.
+              </p>
+            </dd>
+          </div>
+          <div class="bg-[#fafafc] bg-opacity-55 border-[#f0f0f5] border-[0.5px] rounded-lg">
+            <dt aria-controls="faq2" class="flex p-6 justify-between items-center cursor-pointer">
+              <p class="text-lg font-semibold">
+                Can I try ToDesktop without buying?
+              </p>
+              <i class="fa-solid fa-chevron-down text-[#a6a6a7]"></i>
+            </dt>
+            <dd id="faq2" class="faq-answer ml-5 mr-7 hidden">
+              <p class="text-lg text-[#303331]">
+                Yes. You can get started by downloading ToDesktop Builder at no cost. After installing it, you can build
+                your desktop application and preview it by clicking the “Run” button. This allows you to test the app on
+                your own computer to ensure it performs to your expectations.
+              </p>
+              <p class="text-lg text-[#303331]">
+                If you're using a Mac and wish to add the app to your “Applications” folder for easier access, simply
+                follow these steps:
+              </p>
+              <ol class="ml-5 mr-7 flex flex-col gap-3">
+                <li class="text-lg list-decimal text-[#959597]">
+                  <p class="ml-2 text-lg text-[#303331]">Right-click on the app's dock icon while it's running.</p>
+                </li>
+                <li class="text-lg list-decimal text-[#959597]">
+                  <p class="ml-2 text-lg text-[#303331]">Select “Options” and then “Show in Finder.”</p>
+                </li>
+                <li class="text-lg list-decimal text-[#959597]">
+                  <p class="ml-2 text-lg text-[#303331]">Drag the application into your Applications directory, allowing
+                    you to use it just like any other installed app.</p>
+                </li>
+              </ol>
+              <p class="text-lg mr-9 text-[#303331]">
+                Should you decide to distribute your application to a wider audience—complete with code signing and a
+                native installer—you'll need to purchase a subscription.
+              </p>
+            </dd>
+          </div>
+          <div class="bg-[#fafafc] bg-opacity-55 border-[#f0f0f5] border-[0.5px] rounded-lg">
+            <dt aria-controls="faq3" class="flex p-6 justify-between items-center cursor-pointer">
+              <p class="text-lg font-semibold">
+                Do you collect or store data about my customers?
+              </p>
+              <i class="fa-solid fa-chevron-down text-[#a6a6a7]"></i>
+            </dt>
+            <dd id="faq3" class="faq-answer ml-5 mr-7 hidden">
+              <p class="text-lg text-[#303331]">
+                No. When a ToDesktop app opens it contacts the our servers to check if an update is available. We do not
+                collect or store any user data from these requests.
+              </p>
+            </dd>
+          </div>
+          <div class="bg-[#fafafc] bg-opacity-55 border-[#f0f0f5] border-[0.5px] rounded-lg">
+            <dt aria-controls="faq4" class="flex p-6 justify-between items-center cursor-pointer">
+              <p class="text-lg font-semibold">
+                Does ToDesktop work with sites built with _?
+              </p>
+              <i class="fa-solid fa-chevron-down text-[#a6a6a7]"></i>
+            </dt>
+            <dd id="faq4" class="faq-answer ml-5 mr-7 hidden">
+              <ul class="flex flex-col gap-3">
+                <li class="text-lg ml-5 mr-7 list-disc text-[#303331]">
+                  Wordpress? Yes.</li>
+                <li class="text-lg ml-5 mr-7 list-disc text-[#303331]">
+                  Squarespace? Yup.</li>
+                <li class="text-lg ml-5 mr-7 list-disc text-[#303331]">
+                  Wix? Of course.</li>
+                <li class="text-lg ml-5 mr-7 list-disc text-[#303331]">
+                  Shopify? Definitely.</li>
+                <li class="text-lg ml-5 mr-7 list-disc text-[#303331]">
+                  React? You bet.</li>
+                <li class="text-lg ml-5 mr-7 list-disc text-[#303331]">
+                  Vue? Affirmative.</li>
+                <li class="text-lg ml-5 mr-7 list-disc text-[#303331]">
+                  PHP? 100%.</li>
+                <li class="text-lg ml-5 mr-7 list-disc text-[#303331]">
+                  Go? Absolutely.</li>
+              </ul>
+              <p class="text-lg mr-9 text-[#303331]">
+                If you're noticing a trend here, that's because ToDesktop works with sites built with any technology
+                stack.
+              </p>
+              <p class="text-lg mr-9 text-[#303331]">
+                If it works in your browser it will work as a ToDesktop app.
+              </p>
+            </dd>
+          </div>
+          <div class="bg-[#fafafc] bg-opacity-55 border-[#f0f0f5] border-[0.5px] rounded-lg">
+            <dt aria-controls="faq5" class="flex p-6 justify-between items-center cursor-pointer">
+              <p class="text-lg font-semibold">
+                What features are on the product roadmap?
+              </p>
+              <i class="fa-solid fa-chevron-down text-[#a6a6a7]"></i>
+            </dt>
+            <dd id="faq5" class="faq-answer ml-5 mr-7 hidden">
+              <p class="text-lg text-[#303331]">
+                If you have any suggestions, we'd love to hear! Please send us an email at support@todesktop.com or send
+                us a message
+              </p>
+            </dd>
+          </div>
+          <div class="bg-[#fafafc] bg-opacity-55 border-[#f0f0f5] border-[0.5px] rounded-lg">
+            <dt aria-controls="faq6" class="flex p-6 justify-between items-center cursor-pointer">
+              <p class="text-lg font-semibold">
+                How does ToDesktop work under the hood?
+              </p>
+              <i class="fa-solid fa-chevron-down text-[#a6a6a7]"></i>
+            </dt>
+            <dd id="faq6" class="faq-answer ml-5 mr-14 hidden">
+              <p class="text-lg text-[#303331]">
+                It can help to think of ToDesktop as a custom web browser dedicated to your web app or website. It shows
+                a live version of your site or web app at all times, just like a web browser. There is no toolbar or
+                address bar or refresh buttons but it behaves and functions just like a web browser. This means you
+                don’t need to do anything to your existing site, it will just work. If your site works in Google Chrome
+                then it is compatible with ToDesktop.
+              </p>
+              <p class="text-lg text-[#303331]">
+                ToDesktop uses a technology called Electron. You don't need Electron (or even coding) experience to
+                create a desktop app with ToDesktop. Rest assured, the underlying “browser” engine is updated regularly
+                through auto-updates. So the desktop version of your app will always have the latest web features
+                available.
+              </p>
+            </dd>
+          </div>
+
+
+        </div>
+
+        <div class="faq-right flex flex-col gap-3">
+
+
+          <div class="bg-[#fafafc] bg-opacity-55 border-[#f0f0f5] border-[0.5px] rounded-lg">
+            <dt aria-controls="faq7" class="flex p-6 justify-between items-center cursor-pointer">
+              <p class="text-lg font-semibold">
+                Will my app work offline?
+              </p>
+              <i class="fa-solid fa-chevron-down text-[#a6a6a7]"></i>
+            </dt>
+            <dd id="faq7" class="faq-answer ml-5 mr-7 hidden">
+              <p class="text-lg text-[#303331]">
+                Think of ToDesktop as a normal browser that is just for your website. Your website will work exactly as
+                it does in Chrome, or any other browser.
+              </p>
+              <p class="text-lg text-[#303331]">
+                If you want to make the app work offline you'll need to make it into a progressive web app. Include a
+                web manifest, service workers and client-side storage and voila — offline support.
+              </p>
+              <p class="text-lg text-[#303331]">
+                Learn more on MDN.
+              </p>
+            </dd>
+          </div>
+          <div class="bg-[#fafafc] bg-opacity-55 border-[#f0f0f5] border-[0.5px] rounded-lg">
+            <dt aria-controls="faq8" class="flex p-6 justify-between items-center cursor-pointer">
+              <p class="text-lg font-semibold">
+                Which version of Electron/Chromium is used?
+              </p>
+              <i class="fa-solid fa-chevron-down text-[#a6a6a7]"></i>
+            </dt>
+            <dd id="faq8" class="faq-answer ml-5 mr-7 hidden">
+              <p class="text-lg text-[#303331]">
+                ToDesktop is currently based on Chromium 118 and Electron 27. When Electron releases a new version you
+                can expect us to update it shortly after. We prioritize security fixes and endeavour to release them as
+                soon as possible. All updates are pushed out to all your users over auto-update.
+              </p>
+              <p class="text-lg text-[#303331]">
+                You can learn more about this here.
+              </p>
+            </dd>
+          </div>
+          <div class="bg-[#fafafc] bg-opacity-55 border-[#f0f0f5] border-[0.5px] rounded-lg">
+            <dt aria-controls="faq9" class="flex p-6 justify-between items-center cursor-pointer">
+              <p class="text-lg font-semibold">
+                What support do you offer?
+              </p>
+              <i class="fa-solid fa-chevron-down text-[#a6a6a7]"></i>
+            </dt>
+            <dd id="faq9" class="faq-answer ml-5 mr-7 hidden">
+              <p class="text-lg text-[#303331]">
+                We'll do our best to help you with any issue you encounter with ToDesktop. You can get in touch with us
+                via email and chat.
+              </p>
+              <p class="text-lg text-[#303331]">
+                On the Startup plan we deal with the same day or the next day.
+              </p>
+              <p class="text-lg text-[#303331]">
+                On the Business plan you get concierge onboarding. This is a video/phoneonboarding session where we take
+                you through the product and make sure you're happy set up. You also get priority support with your
+                issues answered first. You can also schedule a phone/video support session if necessary.
+              </p>
+              <p class="text-lg text-[#303331]">
+                You can email us at support@todesktop.com or chat with us
+              </p>
+            </dd>
+          </div>
+          <div class="bg-[#fafafc] bg-opacity-55 border-[#f0f0f5] border-[0.5px] rounded-lg">
+            <dt aria-controls="faq10" class="flex p-6 justify-between items-center cursor-pointer">
+              <p class="text-lg font-semibold">
+                How does my app get updated?
+              </p>
+              <i class="fa-solid fa-chevron-down text-[#a6a6a7]"></i>
+            </dt>
+            <dd id="faq10" class="faq-answer ml-5 mr-7 hidden">
+              <p class="text-lg text-[#303331]">
+                Every time your app launches it contacts the ToDesktop update server. If there is a newer version
+                available then it gets downloaded automatically. The user gets a notification that the new version will
+                be installed the next time that they open the app.
+              </p>
+              <p class="text-lg text-[#303331]">
+                Auto-updates are published on two occasions:
+              </p>
+              <ul class="flex flex-col gap-3">
+                <li class="text-lg ml-5 mr-7 list-disc text-[#303331]">An app detail (name, icon, default window
+                  dimensions) is changed.</li>
+                <li class="text-lg ml-5 mr-7 list-disc text-[#303331]">Electron or the ToDesktop standard library is
+                  updated.</li>
+              </ul>
+            </dd>
+          </div>
+          <div class="bg-[#fafafc] bg-opacity-55 border-[#f0f0f5] border-[0.5px] rounded-lg">
+            <dt aria-controls="faq11" class="flex p-6 justify-between items-center cursor-pointer">
+              <p class="text-lg font-semibold">
+                I want to use ToDesktop to convert multiple web apps, is there a bulk discount available?
+              </p>
+              <i class="fa-solid fa-chevron-down text-[#a6a6a7]"></i>
+            </dt>
+            <dd id="faq11" class="faq-answer ml-5 mr-7 hidden">
+              <p class="text-lg text-[#303331]">
+                Yes, let us know your needs. Please send us an email at support@todesktop.com or send us a message
+              </p>
+            </dd>
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+      <p class="text-[#6d6e73] text-lg mt-8 mb-14 ">
+        More questions? Visit our <span
+          class="text-[#1f1f20] underline underline-offset-[5px] cursor-pointer decoration-[#babbc0]  hover:decoration-[#6D6E73] ">docs.</span>
+        Or <span
+          class="text-[#1f1f20] underline underline-offset-[5px] cursor-pointer decoration-[#babbc0]  hover:decoration-[#6D6E73] ">send
+          us a message.</span>
+      </p>
+
+    </div>
+    <!-- FAQS -- THE END -->
+
+  </main>
+
+  <footer class="flex flex-col justify-center">
+
+    <div
+      class="mx-14 bg-[#fafafc] bg-opacity-55 border-[#f0f0f5] border-[0.5px] rounded-lg flex flex-col customLgSize:flex-row gap-6 customLgSize:justify-between items-center py-10 px-7">
+      <a href="#" id="brand" class="flex gap-2 items-center">
+        <img class="object-cover max-w-20 max-h-20" src="assets/asset 0.png" alt="Logo">
+        <span class="text-lg font-semibold">ToDesktop</span>
+      </a>
+      <div class="rightSide-items flex items-center gap-10">
+        <p class="text-[#6d6e73] text-lg cursor-pointer hover:text-[#1f1f20] ">
+          Documentation
+        </p>
+        <a href="#" class="text-[#6d6e73] text-xl hover:text-[#1c1c1f]"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" class="text-[#6d6e73] text-xl hover:text-[#1c1c1f]"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+
+    <div class="mt-10 mb-4 flex justify-center items-center gap-3">
+      <img src="assets/asset 54.svg" class="h-3">
+      <p class="text-[#6d6e73] text-sm ">
+        A Y Combinator company.
+      </p>
+    </div>
+
+    <div class="mb-10 flex justify-center items-center gap-3">
+      <p class="text-sm text-[#b3b4ba]">© 2024 ToDesktop, Inc. All rights reserved.</p>
+    </div>
+
+
+  </footer>
+
+</body>
+
+<script src="script.js"></script>
+
+</html>
